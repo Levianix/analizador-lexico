@@ -157,13 +157,11 @@ def t_PARA(t):
 
 def t_REAL(t):
     r'\d+[.]\d+'
-    print("entro real")
     t.value = float(t.value)
     return t
 
 def t_ENTERO(t):
     r'\d+'
-    print("entro entero")
     t.value = int(t.value)
     return t
 
@@ -222,7 +220,7 @@ def t_comments_ONELine(t):
      print("Comentario de una linea")
 t_ignore =' \t'
 
-def t_error( t):
+def t_error(t):
     global resultado_lexema
     estado = "** Token no valido Valor {:6}".format(str(t.value))
     resultado_lexema.append(estado)
@@ -237,12 +235,13 @@ def prueba(data):
 
     resultado_lexema.clear()
     while True:
-        i+=1
         tok = analizador.token()
         if not tok:
             break
         # print("lexema de "+tok.type+" valor "+tok.value+" linea "tok.lineno)
         estado = "Tipo {:16} Valor {:5}".format(str(tok.type) ,str(tok.value))
+        if isinstance(tok.value, int):
+            print("Entro al if - numero\n")
         resultado_lexema.append(estado)
     return resultado_lexema
 
