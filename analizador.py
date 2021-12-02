@@ -1,3 +1,4 @@
+from pprint import pprint
 import ply.lex as lex
 
 # resultado del analisis
@@ -244,4 +245,4 @@ if __name__ == '__main__':
     while True:
         data = input("ingrese: ")
         prueba(data)
-        print(resultado_lexema)
+        pprint(resultado_lexema)
