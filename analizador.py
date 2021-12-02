@@ -24,7 +24,7 @@ tokens = reservada + (
     'ASIGNAR',
 
     'SUMA',
-    'RESTA',
+    'NEGATIVO',
     'MULT',
     'DIV',
     'POTENCIA',
@@ -70,7 +70,7 @@ tokens = reservada + (
 # Reglas de Expresiones Regualres para token de Contexto simple
 
 t_SUMA = r'\+'
-t_RESTA = r'-'
+t_NEGATIVO = r'-'
 t_MINUSMINUS = r'\-\-'
 # t_PUNTO = r'\.'
 t_MULT = r'\*'
@@ -233,7 +233,7 @@ def prueba(data):
         if not tok:
             break
         # print("lexema de "+tok.type+" valor "+tok.value+" linea "tok.lineno)
-        estado = "Linea {:4} Tipo {:16} Valor {:16} Posicion {:4}".format(str(tok.lineno),str(tok.type) ,str(tok.value), str(tok.lexpos) )
+        estado = "Linea {:4} Tipo {:16} Valor {:5}".format(str(tok.lineno),str(tok.type) ,str(tok.value))
         resultado_lexema.append(estado)
     return resultado_lexema
 
