@@ -22,9 +22,10 @@ reservada = (
 tokens = reservada + (
     'IDENTIFICADOR',
     'ENTERO',
+    'REAL',
     'ASIGNAR',
 
-    'SUMA',
+    'POSITIVO',
     'NEGATIVO',
     'MULT',
     'DIV',
@@ -70,7 +71,7 @@ tokens = reservada + (
 
 # Reglas de Expresiones Regualres para token de Contexto simple
 
-t_SUMA = r'\+'
+t_POSITIVO = r'\+'
 t_NEGATIVO = r'-'
 t_MINUSMINUS = r'\-\-'
 # t_PUNTO = r'\.'
@@ -154,8 +155,15 @@ def t_PARA(t):
     r'for'
     return t
 
+def t_REAL(t):
+    r'\d+[.]\d+'
+    print("entro real")
+    t.value = float(t.value)
+    return t
+
 def t_ENTERO(t):
     r'\d+'
+    print("entro entero")
     t.value = int(t.value)
     return t
 
@@ -229,6 +237,7 @@ def prueba(data):
 
     resultado_lexema.clear()
     while True:
+        i+=1
         tok = analizador.token()
         if not tok:
             break
