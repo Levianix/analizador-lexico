@@ -216,8 +216,7 @@ t_ignore =' \t'
 
 def t_error( t):
     global resultado_lexema
-    estado = "** Token no valido en la Linea {:4} Valor {:16} Posicion {:4}".format(str(t.lineno), str(t.value),
-                                                                      str(t.lexpos))
+    estado = "** Token no valido Valor {:6}".format(str(t.value))
     resultado_lexema.append(estado)
     t.lexer.skip(1)
 
@@ -234,7 +233,7 @@ def prueba(data):
         if not tok:
             break
         # print("lexema de "+tok.type+" valor "+tok.value+" linea "tok.lineno)
-        estado = "Linea {:4} Tipo {:16} Valor {:5}".format(str(tok.lineno),str(tok.type) ,str(tok.value))
+        estado = "Tipo {:16} Valor {:5}".format(str(tok.type) ,str(tok.value))
         resultado_lexema.append(estado)
     return resultado_lexema
 
