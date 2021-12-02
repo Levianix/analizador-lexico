@@ -241,8 +241,20 @@ def prueba(data):
  # instanciamos el analizador lexico
 analizador = lex.lex()
 
+def printall(the_list, level):
+    for x in the_list:
+        if isinstance(x, list):
+            printall(x, level=level + 1)
+        else:
+            for tab_stop in range(level):
+                print("\t", end='')
+        print(x)
+
 if __name__ == '__main__':
     while True:
         data = input("ingrese: ")
         prueba(data)
-        pprint(resultado_lexema)
+        #print(str(resultado_lexema))
+        printall(resultado_lexema, 2) 
+
+
