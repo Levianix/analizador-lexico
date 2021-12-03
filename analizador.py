@@ -49,7 +49,7 @@ tokens = reservada + (
     'MENORIGUAL',
     'MAYORQUE',
     'MAYORIGUAL',
-    'IGUAL',
+    'OPERELA',
     'DISTINTO',
     # Symbolos
     'NUMERAL',
@@ -189,7 +189,7 @@ def t_MAYORIGUAL(t):
     r'>='
     return t
 
-def t_IGUAL(t):
+def t_OPERELA(t):
     r'=='
     return t
 
@@ -251,41 +251,42 @@ def prueba(data):
         #print("tok.value: ",tok.value)
 
         # ENTERO
-        if isinstance(tok.value, int):
-            #cambiar estados después
-            print("\t\t\tEstados 0->21->22")
+        if i<=1:
+            if isinstance(tok.value, int):
+                #cambiar estados después
+                print("\t\t\tEstados 0->18->19")
 
         # FLOAT
-        elif isinstance(tok.value, float):
-            print("\t\t\tEstados 0->23->24->25")
+            elif isinstance(tok.value, float):
+                print("\t\t\tEstados 0->18->19->18")
 
 
-
-        else: 
-            if i==0:
-                auxI=tok.value
-            elif i==1:
-                auxX=tok.value
-            elif i==2:
-                auxP=tok.value
-            elif i==3:
-                auxMe=tok.value
-            elif i==4:
-                auxX2=tok.value
-            elif i==5:
-                auxPa=tok.value
+        if i==0:
+            auxI=tok.value
+        elif i==1:
+            auxX=tok.value
+        elif i==2:
+            auxP=tok.value
+        elif i==3:
+            auxMe=tok.value
+        elif i==4:
+            auxX2=tok.value
+        elif i==5:
+            auxPa=tok.value
         #print(tok.value)
 
         resultado_lexema.append(estado)
+        print("i: ",i)
         i+=1
-    """
+
+    #"""
     print("auxI: ",auxI)
     print("auxX: ",auxX)
     print("auxP: ",auxP)
     print("auxP: ",auxMe)
     print("auxP: ",auxX2)
     print("auxP: ",auxPa)
-    """
+    #"""
 
     # INT X;
     if (auxI=="int" and isinstance(auxX, str) and auxP==";"):
@@ -301,11 +302,30 @@ def prueba(data):
 
     # ENTERO SIN SIGNO???
 
-    # IF(x7<x8):
+    # IF(x7<x8)
     elif (auxI=="if" and auxX=="(" and isinstance(auxP, str) and auxMe=="<" and isinstance(auxX2, str) and auxPa==")"):
         print("\t\t\tEstados 0->28->29->30->31")
 
+    # IF(x7>x8)
         
+    
+    # IF(x7<=x8)
+
+
+    # IF(x7>=x8)
+
+
+    # IF(x==y)
+
+
+    # IF(x!=y)
+
+
+    # IF(999<9)
+    elif (auxI=="if" and auxX=="(" and isinstance(auxP, int) and auxMe=="<" and isinstance(auxX2, int) and auxPa==")"):
+        print("\t\t\tEstados 0->22->23->24->32->33->37->38")
+
+    
     return resultado_lexema
 
  # instanciamos el analizador lexico
