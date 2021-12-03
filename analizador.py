@@ -246,19 +246,7 @@ def prueba(data):
         tok = analizador.token()
         if not tok:
             break
-        # print("lexema de "+tok.type+" valor "+tok.value+" linea "tok.lineno)
         estado = "Tipo {:16} Valor {:5}".format(str(tok.type) ,str(tok.value))
-        #print("tok.value: ",tok.value)
-
-        # ENTERO
-        if i<=1:
-            if isinstance(tok.value, int):
-                #cambiar estados después
-                print("\t\t\tEstados 0->18->19")
-
-        # FLOAT
-            elif isinstance(tok.value, float):
-                print("\t\t\tEstados 0->18->19->18")
 
 
         if i==0:
@@ -273,57 +261,122 @@ def prueba(data):
             auxX2=tok.value
         elif i==5:
             auxPa=tok.value
-        #print(tok.value)
 
         resultado_lexema.append(estado)
-        print("i: ",i)
         i+=1
 
-    #"""
+    """
     print("auxI: ",auxI)
     print("auxX: ",auxX)
     print("auxP: ",auxP)
     print("auxP: ",auxMe)
     print("auxP: ",auxX2)
     print("auxP: ",auxPa)
-    #"""
+    """
 
-    # INT X;
-    if (auxI=="int" and isinstance(auxX, str) and auxP==";"):
+    # entero
+    if isinstance(auxI, int):
+        print("\t\t\tEstados 0->18")
+
+    # entero negativo
+    elif (auxI=="-" and isinstance(auxX, int)):
+        print("\t\t\tEstados 0->20->21->18")
+
+    # real 
+    elif isinstance(auxI, float):
+        print("\t\t\tEstados 0->18->19->18")
+
+    # real negativo
+    elif (auxI=="-" and isinstance(auxX, float)):
+        print("\t\t\tEstados 0->20->21->18->19->18")
+
+    # int x;
+    elif (auxI=="int" and isinstance(auxX, str) and auxP==";"):
         print("\t\t\tEstados 0->1->2->3->4->5")
 
-    # FLOAT X;
+    # float x;
     elif (auxI=="float" and isinstance(auxX, str) and auxP==";"):
-        print("\t\t\tEstados 0->6->7->8->9->10")
+        print("\t\t\tEstados 0->6->7->8->9->10->11")
 
-    # CHAR X;
+    # char x;
     elif (auxI=="char" and isinstance(auxX, str) and auxP==";"):
-        print("\t\t\tEstados 0->15->16->17->18->19->20")
+        print("\t\t\tEstados 0->12->13->14->15->16->17")
 
-    # ENTERO SIN SIGNO???
-
-    # IF(x7<x8)
+    # if(x7<x8)
     elif (auxI=="if" and auxX=="(" and isinstance(auxP, str) and auxMe=="<" and isinstance(auxX2, str) and auxPa==")"):
-        print("\t\t\tEstados 0->28->29->30->31")
+        print("\t\t\tEstados 0->22->23->24->25->26->29->31")
 
-    # IF(x7>x8)
+    # if(x7>x8)
         
     
-    # IF(x7<=x8)
+    # if(x7<=x8)
 
 
-    # IF(x7>=x8)
+    # if(x7>=x8)
 
 
-    # IF(x==y)
+    # if(x==y)
 
 
-    # IF(x!=y)
+    # if(x!=y)
 
 
-    # IF(999<9)
+    # if(x<9)
+
+
+    # if(x>9)
+
+
+    # if(x<=9)
+
+
+    # if(x>=9)
+
+
+    # if(x==9)
+
+
+    # if(x!=9)
+
+
+    # if(9<x)
+
+
+    # if(9>x)
+
+
+    # if(9<=x)
+
+
+    # if(9>=x)
+
+
+    # if(9==x)
+
+
+    # if(9!=x)
+
+
+    # if(9<9)
     elif (auxI=="if" and auxX=="(" and isinstance(auxP, int) and auxMe=="<" and isinstance(auxX2, int) and auxPa==")"):
         print("\t\t\tEstados 0->22->23->24->32->33->37->38")
+
+
+    # if(9>9)
+
+
+    # if(9<=9)
+
+
+    # if(9>=9)
+
+
+    # if(9==9)
+
+
+    # if(9!=9)
+    
+
 
     
     return resultado_lexema
