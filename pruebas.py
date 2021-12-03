@@ -1,7 +1,7 @@
 #decimal=float(input("Dame un numero: "))
 
 #print(type(decimal))
-#"""
+"""
 resultado=[]
 
 ln=5
@@ -16,7 +16,6 @@ resultado.append(estado)
 #print()
 #print(resultado)
 
-#"""
 
 #funcion prueba
 def printall(the_list, level):
@@ -29,3 +28,9 @@ def printall(the_list, level):
         print(x)
 
 printall(resultado, 1)
+"""
+
+cad="int x;"
+
+if cad=="int x;":
+    print("entro if")

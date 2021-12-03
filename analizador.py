@@ -229,6 +229,7 @@ def t_error(t):
 # Prueba de ingreso
 def prueba(data):
     global resultado_lexema
+    i=0
 
     analizador = lex.lex()
     analizador.input(data)
@@ -240,9 +241,17 @@ def prueba(data):
             break
         # print("lexema de "+tok.type+" valor "+tok.value+" linea "tok.lineno)
         estado = "Tipo {:16} Valor {:5}".format(str(tok.type) ,str(tok.value))
+        #print("tok.value: ",tok.value)
         if isinstance(tok.value, int):
-            print("Entro al if - numero\n")
+            #cambiar estados después
+            print("\t\tEstados 0-21-22")
+        elif isinstance(tok.value, float):
+            print("\t\tEstados 0-23-24-25")
+
+        print(tok.value)
+
         resultado_lexema.append(estado)
+        i+=1
     return resultado_lexema
 
  # instanciamos el analizador lexico
