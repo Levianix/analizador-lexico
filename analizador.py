@@ -232,6 +232,9 @@ def prueba(data):
     auxI=" "
     auxX=" "
     auxP=" "
+    auxMe=" "
+    auxX2=" "
+    auxPa=" "
 
     i=0
 
@@ -250,11 +253,11 @@ def prueba(data):
         # ENTERO
         if isinstance(tok.value, int):
             #cambiar estados después
-            print("\t\tEstados 0->21->22")
+            print("\t\t\tEstados 0->21->22")
 
         # FLOAT
         elif isinstance(tok.value, float):
-            print("\t\tEstados 0->23->24->25")
+            print("\t\t\tEstados 0->23->24->25")
 
 
 
@@ -265,33 +268,42 @@ def prueba(data):
                 auxX=tok.value
             elif i==2:
                 auxP=tok.value
+            elif i==3:
+                auxMe=tok.value
+            elif i==4:
+                auxX2=tok.value
+            elif i==5:
+                auxPa=tok.value
         #print(tok.value)
 
         resultado_lexema.append(estado)
         i+=1
+    """
     print("auxI: ",auxI)
     print("auxX: ",auxX)
     print("auxP: ",auxP)
+    print("auxP: ",auxMe)
+    print("auxP: ",auxX2)
+    print("auxP: ",auxPa)
+    """
 
     # INT X;
-    # Caso un solo caracter
-    if (auxI =="int" and auxX=="x" and auxP==";"):
-        print("\t\tEstados 0->1->2->3->4->5")
-    # Caso 2 caracteres
-    elif (auxI =="int" and auxX=="xy" and auxP==";"):
-        print("\t\t2. Estados 0->1->2->3->4->5")
+    if (auxI=="int" and isinstance(auxX, str) and auxP==";"):
+        print("\t\t\tEstados 0->1->2->3->4->5")
 
     # FLOAT X;
-    elif (auxI =="float" and auxX=="x" and auxP==";"):
-        print("\t\tEstados 0->6->7->8->9->10")
+    elif (auxI=="float" and isinstance(auxX, str) and auxP==";"):
+        print("\t\t\tEstados 0->6->7->8->9->10")
 
     # CHAR X;
-    elif (auxI =="char" and auxX=="x" and auxP==";"):
-        print("\t\tEstados 0->15->16->17->18->19->20")
+    elif (auxI=="char" and isinstance(auxX, str) and auxP==";"):
+        print("\t\t\tEstados 0->15->16->17->18->19->20")
 
     # ENTERO SIN SIGNO???
 
     # IF(x7<x8):
+    elif (auxI=="if" and auxX=="(" and isinstance(auxP, str) and auxMe=="<" and isinstance(auxX2, str) and auxPa==")"):
+        print("\t\t\tEstados 0->28->29->30->31")
 
         
     return resultado_lexema
@@ -313,6 +325,6 @@ if __name__ == '__main__':
         data = input("ingrese: ")
         prueba(data)
         #print(str(resultado_lexema))
-        printall(resultado_lexema, 2) 
+        printall(resultado_lexema, 3) 
 
 
