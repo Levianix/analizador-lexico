@@ -229,6 +229,10 @@ def t_error(t):
 # Prueba de ingreso
 def prueba(data):
     global resultado_lexema
+    auxI=" "
+    auxX=" "
+    auxP=" "
+
     i=0
 
     analizador = lex.lex()
@@ -242,16 +246,54 @@ def prueba(data):
         # print("lexema de "+tok.type+" valor "+tok.value+" linea "tok.lineno)
         estado = "Tipo {:16} Valor {:5}".format(str(tok.type) ,str(tok.value))
         #print("tok.value: ",tok.value)
+
+        # ENTERO
         if isinstance(tok.value, int):
             #cambiar estados después
-            print("\t\tEstados 0-21-22")
-        elif isinstance(tok.value, float):
-            print("\t\tEstados 0-23-24-25")
+            print("\t\tEstados 0->21->22")
 
-        print(tok.value)
+        # FLOAT
+        elif isinstance(tok.value, float):
+            print("\t\tEstados 0->23->24->25")
+
+
+
+        else: 
+            if i==0:
+                auxI=tok.value
+            elif i==1:
+                auxX=tok.value
+            elif i==2:
+                auxP=tok.value
+        #print(tok.value)
 
         resultado_lexema.append(estado)
         i+=1
+    print("auxI: ",auxI)
+    print("auxX: ",auxX)
+    print("auxP: ",auxP)
+
+    # INT X;
+    # Caso un solo caracter
+    if (auxI =="int" and auxX=="x" and auxP==";"):
+        print("\t\tEstados 0->1->2->3->4->5")
+    # Caso 2 caracteres
+    elif (auxI =="int" and auxX=="xy" and auxP==";"):
+        print("\t\t2. Estados 0->1->2->3->4->5")
+
+    # FLOAT X;
+    elif (auxI =="float" and auxX=="x" and auxP==";"):
+        print("\t\tEstados 0->6->7->8->9->10")
+
+    # CHAR X;
+    elif (auxI =="char" and auxX=="x" and auxP==";"):
+        print("\t\tEstados 0->15->16->17->18->19->20")
+
+    # ENTERO SIN SIGNO???
+
+    # IF(x7<x8):
+
+        
     return resultado_lexema
 
  # instanciamos el analizador lexico
