@@ -307,54 +307,87 @@ def prueba(data):
         print("\t\t\tEstados 0->22->23->24->25->26->29->31")
 
     # if(x7>x8)
-        
+    elif (auxI=="if" and auxX=="(" and isinstance(auxP, str) and auxMe==">" and isinstance(auxX2, str) and auxPa==")"):
+        print("\t\t\tEstados 0->22->23->24->25->26->29->31")
     
     # if(x7<=x8)
+    elif (auxI=="if" and auxX=="(" and isinstance(auxP, str) and auxMe=="<=" and isinstance(auxX2, str) and auxPa==")"):
+        print("\t\t\tEstados 0->22->23->24->25->27->29->31")
 
 
     # if(x7>=x8)
+    elif (auxI=="if" and auxX=="(" and isinstance(auxP, str) and auxMe==">=" and isinstance(auxX2, str) and auxPa==")"):
+        print("\t\t\tEstados 0->22->23->24->25->27->29->31")
 
 
     # if(x==y)
+    elif (auxI=="if" and auxX=="(" and isinstance(auxP, str) and auxMe=="==" and isinstance(auxX2, str) and auxPa==")"):
+        print("\t\t\tEstados 0->22->23->24->25->28->29->31")
 
 
     # if(x!=y)
+    elif (auxI=="if" and auxX=="(" and isinstance(auxP, str) and auxMe=="!=" and isinstance(auxX2, str) and auxPa==")"):
+        print("\t\t\tEstados 0->22->23->24->25->28->29->31")
 
 
     # if(x<9)
+    elif (auxI=="if" and auxX=="(" and isinstance(auxP, str) and auxMe=="<" and isinstance(auxX2, int) and auxPa==")"):
+        print("\t\t\tEstados 0->22->23->24->25->26->30->31")
 
 
     # if(x>9)
+    elif (auxI=="if" and auxX=="(" and isinstance(auxP, str) and auxMe==">" and isinstance(auxX2, int) and auxPa==")"):
+        print("\t\t\tEstados 0->22->23->24->25->26->30->31")
 
 
     # if(x<=9)
+    elif (auxI=="if" and auxX=="(" and isinstance(auxP, str) and auxMe=="<=" and isinstance(auxX2, int) and auxPa==")"):
+        print("\t\t\tEstados 0->22->23->24->25->27->30->31")
 
 
     # if(x>=9)
+    elif (auxI=="if" and auxX=="(" and isinstance(auxP, str) and auxMe==">=" and isinstance(auxX2, int) and auxPa==")"):
+        print("\t\t\tEstados 0->22->23->24->25->27->30->31")
 
 
     # if(x==9)
+    elif (auxI=="if" and auxX=="(" and isinstance(auxP, str) and auxMe=="==" and isinstance(auxX2, int) and auxPa==")"):
+        print("\t\t\tEstados 0->22->23->24->25->28->30->31")
 
 
     # if(x!=9)
+    elif (auxI=="if" and auxX=="(" and isinstance(auxP, str) and auxMe=="!=" and isinstance(auxX2, int) and auxPa==")"):
+        print("\t\t\tEstados 0->22->23->24->25->28->30->31")
 
 
     # if(9<x)
+    elif (auxI=="if" and auxX=="(" and isinstance(auxP, int) and auxMe=="<" and isinstance(auxX2, str) and auxPa==")"):
+        print("\t\t\tEstados 0->22->23->24->32->33->36->38")
 
 
     # if(9>x)
+    elif (auxI=="if" and auxX=="(" and isinstance(auxP, int) and auxMe==">" and isinstance(auxX2, str) and auxPa==")"):
+        print("\t\t\tEstados 0->22->23->24->32->33->36->38")
 
 
     # if(9<=x)
+    elif (auxI=="if" and auxX=="(" and isinstance(auxP, int) and auxMe=="<=" and isinstance(auxX2, str) and auxPa==")"):
+        print("\t\t\tEstados 0->22->23->24->32->34->36->38")
 
 
     # if(9>=x)
+    elif (auxI=="if" and auxX=="(" and isinstance(auxP, int) and auxMe==">=" and isinstance(auxX2, str) and auxPa==")"):
+        print("\t\t\tEstados 0->22->23->24->32->34->36->38")
 
 
     # if(9==x)
+    elif (auxI=="if" and auxX=="(" and isinstance(auxP, int) and auxMe=="==" and isinstance(auxX2, str) and auxPa==")"):
+        print("\t\t\tEstados 0->22->23->24->32->35->36->38")
 
 
     # if(9!=x)
+    elif (auxI=="if" and auxX=="(" and isinstance(auxP, int) and auxMe=="!=" and isinstance(auxX2, str) and auxPa==")"):
+        print("\t\t\tEstados 0->22->23->24->32->35->36->38")
 
 
     # if(9<9)
@@ -363,21 +396,28 @@ def prueba(data):
 
 
     # if(9>9)
+    elif (auxI=="if" and auxX=="(" and isinstance(auxP, int) and auxMe==">" and isinstance(auxX2, int) and auxPa==")"):
+        print("\t\t\tEstados 0->22->23->24->32->33->37->38")
 
 
     # if(9<=9)
+    elif (auxI=="if" and auxX=="(" and isinstance(auxP, int) and auxMe=="<=" and isinstance(auxX2, int) and auxPa==")"):
+        print("\t\t\tEstados 0->22->23->24->32->34->37->38")
 
 
     # if(9>=9)
+    elif (auxI=="if" and auxX=="(" and isinstance(auxP, int) and auxMe==">=" and isinstance(auxX2, int) and auxPa==")"):
+        print("\t\t\tEstados 0->22->23->24->32->34->37->38")
 
 
     # if(9==9)
+    elif (auxI=="if" and auxX=="(" and isinstance(auxP, int) and auxMe=="==" and isinstance(auxX2, int) and auxPa==")"):
+        print("\t\t\tEstados 0->22->23->24->32->35->37->38")
 
 
     # if(9!=9)
-    
-
-
+    elif (auxI=="if" and auxX=="(" and isinstance(auxP, int) and auxMe=="!=" and isinstance(auxX2, int) and auxPa==")"):
+        print("\t\t\tEstados 0->22->23->24->32->35->37->38")
     
     return resultado_lexema
 
