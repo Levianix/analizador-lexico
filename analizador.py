@@ -280,7 +280,11 @@ def prueba(data):
 
     # entero negativo
     elif (auxI=="-" and isinstance(auxX, int)):
-        print("\t\t\tEstados 0->20->21->18")
+        print("\t\t\tEstados 0->20->18")
+
+    # entero positivo
+    elif (auxI=="+" and isinstance(auxX, int)):
+        print("\t\t\tEstados 0->20->18")
 
     # real 
     elif isinstance(auxI, float):
@@ -288,7 +292,7 @@ def prueba(data):
 
     # real negativo
     elif (auxI=="-" and isinstance(auxX, float)):
-        print("\t\t\tEstados 0->20->21->18->19->18")
+        print("\t\t\tEstados 0->20->18->19->18")
 
     # int x;
     elif (auxI=="int" and isinstance(auxX, str) and auxP==";"):
@@ -304,120 +308,120 @@ def prueba(data):
 
     # if(x7<x8)
     elif (auxI=="if" and auxX=="(" and isinstance(auxP, str) and auxMe=="<" and isinstance(auxX2, str) and auxPa==")"):
-        print("\t\t\tEstados 0->22->23->24->25->26->29->31")
+        print("\t\t\tEstados 0->21->22->23->24->27->29")
 
     # if(x7>x8)
     elif (auxI=="if" and auxX=="(" and isinstance(auxP, str) and auxMe==">" and isinstance(auxX2, str) and auxPa==")"):
-        print("\t\t\tEstados 0->22->23->24->25->26->29->31")
+        print("\t\t\tEstados 0->21->22->23->24->27->29")
     
     # if(x7<=x8)
     elif (auxI=="if" and auxX=="(" and isinstance(auxP, str) and auxMe=="<=" and isinstance(auxX2, str) and auxPa==")"):
-        print("\t\t\tEstados 0->22->23->24->25->27->29->31")
+        print("\t\t\tEstados 0->21->22->23->25->27->29")
 
 
     # if(x7>=x8)
     elif (auxI=="if" and auxX=="(" and isinstance(auxP, str) and auxMe==">=" and isinstance(auxX2, str) and auxPa==")"):
-        print("\t\t\tEstados 0->22->23->24->25->27->29->31")
+        print("\t\t\tEstados 0->21->22->23->25->27->29")
 
 
     # if(x==y)
     elif (auxI=="if" and auxX=="(" and isinstance(auxP, str) and auxMe=="==" and isinstance(auxX2, str) and auxPa==")"):
-        print("\t\t\tEstados 0->22->23->24->25->28->29->31")
+        print("\t\t\tEstados 0->21->22->23->26->27->29")
 
 
     # if(x!=y)
     elif (auxI=="if" and auxX=="(" and isinstance(auxP, str) and auxMe=="!=" and isinstance(auxX2, str) and auxPa==")"):
-        print("\t\t\tEstados 0->22->23->24->25->28->29->31")
+        print("\t\t\tEstados 0->21->22->23->26->27->29")
 
 
     # if(x<9)
     elif (auxI=="if" and auxX=="(" and isinstance(auxP, str) and auxMe=="<" and isinstance(auxX2, int) and auxPa==")"):
-        print("\t\t\tEstados 0->22->23->24->25->26->30->31")
+        print("\t\t\tEstados 0->21->22->23->24->28->29")
 
 
     # if(x>9)
     elif (auxI=="if" and auxX=="(" and isinstance(auxP, str) and auxMe==">" and isinstance(auxX2, int) and auxPa==")"):
-        print("\t\t\tEstados 0->22->23->24->25->26->30->31")
+        print("\t\t\tEstados 0->21->22->23->24->28->29")
 
 
     # if(x<=9)
     elif (auxI=="if" and auxX=="(" and isinstance(auxP, str) and auxMe=="<=" and isinstance(auxX2, int) and auxPa==")"):
-        print("\t\t\tEstados 0->22->23->24->25->27->30->31")
+        print("\t\t\tEstados 0->21->22->23->25->28->29")
 
 
     # if(x>=9)
     elif (auxI=="if" and auxX=="(" and isinstance(auxP, str) and auxMe==">=" and isinstance(auxX2, int) and auxPa==")"):
-        print("\t\t\tEstados 0->22->23->24->25->27->30->31")
+        print("\t\t\tEstados 0->21->22->23->25->28->29")
 
 
     # if(x==9)
     elif (auxI=="if" and auxX=="(" and isinstance(auxP, str) and auxMe=="==" and isinstance(auxX2, int) and auxPa==")"):
-        print("\t\t\tEstados 0->22->23->24->25->28->30->31")
+        print("\t\t\tEstados 0->21->22->23->26->28->29")
 
 
     # if(x!=9)
     elif (auxI=="if" and auxX=="(" and isinstance(auxP, str) and auxMe=="!=" and isinstance(auxX2, int) and auxPa==")"):
-        print("\t\t\tEstados 0->22->23->24->25->28->30->31")
+        print("\t\t\tEstados 0->21->22->23->26->28->29")
 
 
     # if(9<x)
     elif (auxI=="if" and auxX=="(" and isinstance(auxP, int) and auxMe=="<" and isinstance(auxX2, str) and auxPa==")"):
-        print("\t\t\tEstados 0->22->23->24->32->33->36->38")
+        print("\t\t\tEstados 0->21->22->30->31->34->36")
 
 
     # if(9>x)
     elif (auxI=="if" and auxX=="(" and isinstance(auxP, int) and auxMe==">" and isinstance(auxX2, str) and auxPa==")"):
-        print("\t\t\tEstados 0->22->23->24->32->33->36->38")
+        print("\t\t\tEstados 0->21->22->30->31->34->36")
 
 
     # if(9<=x)
     elif (auxI=="if" and auxX=="(" and isinstance(auxP, int) and auxMe=="<=" and isinstance(auxX2, str) and auxPa==")"):
-        print("\t\t\tEstados 0->22->23->24->32->34->36->38")
+        print("\t\t\tEstados 0->21->22->30->32->34->36")
 
 
     # if(9>=x)
     elif (auxI=="if" and auxX=="(" and isinstance(auxP, int) and auxMe==">=" and isinstance(auxX2, str) and auxPa==")"):
-        print("\t\t\tEstados 0->22->23->24->32->34->36->38")
+        print("\t\t\tEstados 0->21->22->30->32->34->36")
 
 
     # if(9==x)
     elif (auxI=="if" and auxX=="(" and isinstance(auxP, int) and auxMe=="==" and isinstance(auxX2, str) and auxPa==")"):
-        print("\t\t\tEstados 0->22->23->24->32->35->36->38")
+        print("\t\t\tEstados 0->21->22->30->33->34->36")
 
 
     # if(9!=x)
     elif (auxI=="if" and auxX=="(" and isinstance(auxP, int) and auxMe=="!=" and isinstance(auxX2, str) and auxPa==")"):
-        print("\t\t\tEstados 0->22->23->24->32->35->36->38")
+        print("\t\t\tEstados 0->21->22->30->33->34->36")
 
 
     # if(9<9)
     elif (auxI=="if" and auxX=="(" and isinstance(auxP, int) and auxMe=="<" and isinstance(auxX2, int) and auxPa==")"):
-        print("\t\t\tEstados 0->22->23->24->32->33->37->38")
+        print("\t\t\tEstados 0->21->22->30->31->35->36")
 
 
     # if(9>9)
     elif (auxI=="if" and auxX=="(" and isinstance(auxP, int) and auxMe==">" and isinstance(auxX2, int) and auxPa==")"):
-        print("\t\t\tEstados 0->22->23->24->32->33->37->38")
+        print("\t\t\tEstados 0->21->22->30->31->35->36")
 
 
     # if(9<=9)
     elif (auxI=="if" and auxX=="(" and isinstance(auxP, int) and auxMe=="<=" and isinstance(auxX2, int) and auxPa==")"):
-        print("\t\t\tEstados 0->22->23->24->32->34->37->38")
+        print("\t\t\tEstados 0->21->22->30->32->35->36")
 
 
     # if(9>=9)
     elif (auxI=="if" and auxX=="(" and isinstance(auxP, int) and auxMe==">=" and isinstance(auxX2, int) and auxPa==")"):
-        print("\t\t\tEstados 0->22->23->24->32->34->37->38")
+        print("\t\t\tEstados 0->21->22->30->32->35->36")
 
 
     # if(9==9)
     elif (auxI=="if" and auxX=="(" and isinstance(auxP, int) and auxMe=="==" and isinstance(auxX2, int) and auxPa==")"):
-        print("\t\t\tEstados 0->22->23->24->32->35->37->38")
+        print("\t\t\tEstados 0->21->22->30->33->35->36")
 
 
     # if(9!=9)
     elif (auxI=="if" and auxX=="(" and isinstance(auxP, int) and auxMe=="!=" and isinstance(auxX2, int) and auxPa==")"):
-        print("\t\t\tEstados 0->22->23->24->32->35->37->38")
+        print("\t\t\tEstados 0->21->22->30->33->35->36")
     
     return resultado_lexema
 
